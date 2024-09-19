@@ -1,0 +1,111 @@
+/* General Styles */
+body {
+    background-color: #f8f9fa;
+    color: #212529;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+}
+
+/* Wrapper for Sidebar and Content */
+.wrapper {
+    display: flex;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 200px;
+    background: rgba(255, 255, 255, 0.2); /* Glassmorphic background */
+    backdrop-filter: blur(10px);
+    color: #212529;
+    height: 100vh;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    position: fixed; /* Fixed position for persistent sidebar */
+}
+
+.sidebar .navbar-brand {
+    color: #212529; /* Dark text color for brand */
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem; /* Add spacing below the brand */
+    text-align: center; /* Center-align brand text */
+}
+
+.sidebar .nav-link {
+    font-size: 1rem;
+    color: #212529; /* Dark text color */
+    padding: 10px 15px;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 50px; /* Rounded corners for a modern feel */
+    display: block; /* Make links block level for better click area */
+}
+
+.sidebar .nav-link.active, .sidebar .nav-link:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Subtle background color on hover/active */
+    color: #000; /* Black text for emphasis */
+}
+
+/* Content Area */
+.content {
+    flex-grow: 1;
+    padding: 20px;
+    margin-left: 200px; /* Offset for sidebar */
+}
+
+/* Glassmorphic Card Styles */
+.glassmorphic-card {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 20px;
+}
+
+/* Header Styling */
+.expense-history-header {
+    text-align: center;
+}
+
+.expense-history-header h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.expense-history-header p {
+    font-size: 1rem;
+}
+
+/* Table Styles */
+.table-responsive {
+    margin-top: 20px;
+}
+
+.table {
+    color: #212529;
+}
+
+.table-light {
+    background-color: #ffffff;
+}
+
+.table-light thead th {
+    background-color: #f1f1f1;
+}
+
+.table-light tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+/* Button Styles */
+.btn-primary {
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #007bff; /* Or another color from your palette */
+    border: none;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Darker shade of the button color */
+}

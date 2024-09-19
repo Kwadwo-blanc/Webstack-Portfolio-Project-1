@@ -1,0 +1,117 @@
+/* General Styles */
+body {
+    background-color: #f8f9fa;
+    color: #212529;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+}
+
+
+/* Wrapper for Sidebar and Content */
+.wrapper {
+    display: flex;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 200px;
+    background: rgba(255, 255, 255, 0.2); /* Glassmorphic background */
+    backdrop-filter: blur(10px);
+    color: #212529;
+    height: 100vh;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    position: fixed; /* Fixed position for persistent sidebar */
+}
+
+.sidebar .navbar-brand {
+    color: #212529; /* Dark text color for brand */
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem; /* Add spacing below the brand */
+    text-align: center; /* Center-align brand text */
+}
+
+.sidebar .nav-link {
+    font-size: 1rem;
+    color: #212529; /* Dark text color */
+    padding: 10px 15px;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 50px; /* Rounded corners for a modern feel */
+    display: block; /* Make links block level for better click area */
+}
+
+.sidebar .nav-link.active, .sidebar .nav-link:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Subtle background color on hover/active */
+    color: #000; /* Black text for emphasis */
+}
+
+/* Content Area */
+.content {
+    flex-grow: 1;
+    padding: 20px;
+    margin-left: 200px; /* Offset for sidebar */
+}
+
+/* Glassmorphic Card Styles */
+.glassmorphic-card {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 20px;
+}
+
+/* Header Styling */
+.account-header {
+    text-align: center;
+}
+
+.account-header h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.account-header p {
+    font-size: 1rem;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.btn-primary {
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #000; /* Or another color from your palette */
+    border: none;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color:  rgba(255, 255, 255, 0.3);
+    color: #000;
+    font-style: bold; /* Darker on hover */
+}
+
+.btn-danger {
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #dc3545; /* Red background for danger button */
+    border: none;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.btn-danger:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+/* Logout Button Styling */
+.text-center {
+    text-align: center;
+    margin-top: 20px;
+}
