@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | Economic Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body>
+    <div class="login-box">
+        <div class="login-header">
+            <header>Sign Up</header>
+        </div>
+
+        <!-- Flash messages -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="alert alert-warning">
+                    <ul class="mb-0">
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <!-- Sign Up Form -->
+        <div class="input-box">
+            <form action="{{ url_for('signup') }}" method="POST">
+                <input type="text" class="input-field" placeholder="Username" name="username" required>
+                <input type="email" class="input-field" placeholder="Email" name="email" required>
+                <input type="password" class="input-field" placeholder="Password" name="password" required>
+                <input type="password" class="input-field" placeholder="Confirm Password" name="confirm_password" required>
+
+                <div class="input-submit">
+                    <button type="submit" class="submit-btn" id="submit">Sign Up</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="sign-up-link">
+            <p>Already have an account? <a href="{{ url_for('login') }}">Login</a></p>
+        </div>
+    </div>
+</body>
+</html>

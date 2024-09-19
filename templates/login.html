@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Economic Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body>
+    <div class="login-box">
+        <div class="login-header">
+            <header>Login</header>
+        </div>
+
+        <!-- Flash messages -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="alert alert-warning">
+                    <ul class="mb-0">
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <!-- Login Form -->
+        <div class="input-box">
+            <form action="{{ url_for('login') }}" method="POST">
+                <input type="text" class="input-field" placeholder="Username" name="username" required>
+                <input type="password" class="input-field" placeholder="Password" name="password" required>
+                <div class="forgot">
+                    <section>
+                        <input type="checkbox" id="check">
+                        <label for="check">Remember me</label>
+                    </section>
+                    <section>
+                        <a href="#">Forgot password?</a>
+                    </section>
+                </div>
+                <div class="input-submit">
+                    <button type="submit" class="submit-btn" id="submit">Sign In</button>
+                </div>
+            </form>
+        </div>
+        
+        <div class="sign-up-link">
+            <p>Don't have an account? <a href="{{ url_for('signup') }}">Sign Up</a></p>
+        </div>
+    </div>
+</body>
+</html>

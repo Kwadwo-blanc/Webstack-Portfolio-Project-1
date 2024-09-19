@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+</head>
+<body>
+    <div class="wrapper d-flex">
+        <!-- Sidebar -->
+        <nav class="sidebar d-flex flex-column p-3 glassmorphic-card">
+            <div class="navbar-brand text-center mb-4">
+                Financial Tracker
+            </div>
+            <ul class="nav flex-column mb-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{ url_for('index') }}">
+                        Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('manage_expenses') }}">
+                        Manage Expenses
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('history') }}">
+                        Expense History
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="{{ url_for('transaction') }}">
+                        Transaction
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('account') }}">
+                        Account Settings
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="content p-4 flex-grow-1">
+            <!-- Flash Messages -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <div class="alert alert-{{ messages[0][0] }} fade show" role="alert">
+                        {{ messages[0][1] }}
+                    </div>
+                {% endif %}
+            {% endwith %}
+
+            <div class="card glassmorphic-card mb-4">
+                <div class="card-body">
+                    <header class="dashboard-header">
+                        <h1>Dashboard</h1>
+                        <p>Track and manage your finances with ease.</p>
+                    </header>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card summary-card glassmorphic-card">
+                        <div class="card-body">
+                            <h3 class="card-title">Current Income</h3>
+                            <p class="card-text">$500</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card summary-card glassmorphic-card">
+                        <div class="card-body">
+                            <h3 class="card-title">Expenses</h3>
+                            <p class="card-text">$500</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+
+            <!-- Expenses Table -->
+            <div class="card glassmorphic-card mt-4">
+                <div class="card-header">
+                    <h3>Recent Expenses</h3>
+                </div>
+                <div class="card-body">
+                    <table class="table table-light table-hover expense-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Category</th>
+                                <th>Amount</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for expense in expenses %}
+                            <tr>
+                                <td>{{ expense[0] }}</td>
+                                <td>{{ expense[2] }}</td>
+                                <td>${{ expense[3] }}</td>
+                                <td>{{ expense[4] }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Logout Button -->
+            <div class="text-center mt-4">
+                <a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
